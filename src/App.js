@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import AddContact from "./components/AddContact";
 import ContactList from "./components/ContactList";
+import ContactDetail from "./components/ContactDetail";
 import uuid from "react-uuid";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
@@ -64,10 +65,12 @@ function App() {
                 getContactId={removeContactHandler}
               />
             )}
+
+            // component = {()=><ContactList contacts={contacts} />}
           />
+
+          <Route path="/contact/:id" component={ContactDetail} />
         </Switch>
-        {/* <AddContact addContactHandler={addContactHandler} /> */}
-        {/* <ContactList contacts={contacts} getContactId={removeContactHandler} /> */}
       </Router>
     </div>
   );
