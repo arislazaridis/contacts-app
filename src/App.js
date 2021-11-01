@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import AddContact from "./components/AddContact";
 import ContactList from "./components/ContactList";
 import uuid from "react-uuid";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   //array with contacts
   // const contacts = [
@@ -46,9 +47,28 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts={contacts} getContactId={removeContactHandler} />
+      <Router>
+        <Header />
+        <Switch>
+          <Route
+            path="/add"
+            // component={AddContact}
+            render={() => <AddContact addContactHandler={addContactHandler} />}
+          />
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <ContactList
+                contacts={contacts}
+                getContactId={removeContactHandler}
+              />
+            )}
+          />
+        </Switch>
+        {/* <AddContact addContactHandler={addContactHandler} /> */}
+        {/* <ContactList contacts={contacts} getContactId={removeContactHandler} /> */}
+      </Router>
     </div>
   );
 }

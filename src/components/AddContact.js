@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export class AddContact extends Component {
   constructor(props) {
@@ -47,6 +48,9 @@ export class AddContact extends Component {
             />
           </div>
           <button>Add</button>
+          <Link to="/">
+            <button>Contact list</button>
+          </Link>
         </form>
       </div>
     );

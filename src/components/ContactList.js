@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
 
 const ContactList = ({ contacts, getContactId }) => {
@@ -15,7 +16,21 @@ const ContactList = ({ contacts, getContactId }) => {
 
   return (
     <div>
-      <h2>Contact list : </h2>
+      <h2>
+        Contact list
+        <Link to="/add">
+          <button
+            style={{
+              backgroundColor: "blue",
+              color: "white",
+              marginLeft: "50px",
+            }}
+          >
+            Add Contact
+          </button>
+        </Link>
+      </h2>
+
       {contacts.length > 0 ? (
         contactListRender
       ) : (
