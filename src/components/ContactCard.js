@@ -8,10 +8,8 @@ function ContactCard({ contact, clickHandler }) {
     <div>
       <div key={id}>
         <img style={{ width: "30px" }} src={user} alt="user" />
-        <Link to={`/contact/${id}`}>
-          <strong> Name : </strong>
-          {name} <strong>Email:</strong> {email}
-        </Link>
+        <strong> Name : </strong>
+        {name} <strong>Email:</strong> {email}
         <button type="click" onClick={() => clickHandler(id)}>
           delete
         </button>
